@@ -19,5 +19,10 @@ namespace MVC5Course
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_EndRequest()
+        {
+            var error = this.Context.AllErrors;
+        }
     }
 }
