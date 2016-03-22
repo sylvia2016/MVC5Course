@@ -194,6 +194,7 @@
     <Compile Include="Models\Client.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EDEViewModel.cs" />
     <Compile Include="Models\Fabrics.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +210,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetProducts_Result.cs">
+      <DependentUpon>Fabrics.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Occupation.cs">
@@ -220,9 +224,12 @@
     <Compile Include="Models\OrderLine.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partial Class\ProductPartial.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\至少須包含兩個空白Attribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,6 +315,12 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Test\EDE.cshtml" />
+    <Content Include="Views\Test\createProduct.cshtml" />
+    <Content Include="Views\Test\ReadProduct.cshtml" />
+    <Content Include="Views\Test\OneProduct.cshtml" />
+    <Content Include="Views\Test\ProductView.cshtml" />
+    <Content Include="Views\Test\ProductSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

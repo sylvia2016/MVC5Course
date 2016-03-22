@@ -12,18 +12,16 @@ namespace MVC5Course.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    public partial class Product
+    public partial class Product : IValidatableObject
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             this.OrderLine = new HashSet<OrderLine>();
-        }
-    
+        }    
         
         public int ProductId { get; set; }
-
-        [Required(ErrorMessage = "產品名稱必填")]
+        //[至少須包含兩個空白]
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> Active { get; set; }
@@ -31,5 +29,14 @@ namespace MVC5Course.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderLine> OrderLine { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (!ProductName.Contains(" "))
+            {
+                yield return new ValidationResult("至少包含要包含空白");
+            }
+        }
+
     }
 }
