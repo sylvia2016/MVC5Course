@@ -13,8 +13,17 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HandleError(ExceptionType =typeof(ArgumentException), View = "Error2")]
+        public ActionResult About(string name)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("參數錯誤！");
+            }
+
+            throw new InvalidOperationException("操作錯誤！");
+           
+
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -30,6 +39,11 @@ namespace MVC5Course.Controllers
         public ActionResult Test()
         {
             return View();  
+        }
+
+        public ActionResult NewIndex()
+        {
+            return View();
         }
     }
 }
