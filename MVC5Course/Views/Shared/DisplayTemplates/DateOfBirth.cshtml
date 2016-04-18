@@ -1,0 +1,9 @@
+﻿@model DateTime?
+
+@if(Model.HasValue)
+{
+    System.Globalization.CultureInfo tc = new System.Globalization.CultureInfo("zh-TW");
+    tc.DateTimeFormat.Calendar = new System.Globalization.TaiwanCalendar();
+    Response.Write(Model.Value.ToString(tc));
+    @Html.DisplayFor()
+}
